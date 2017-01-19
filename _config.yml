@@ -1,0 +1,21 @@
+markdown: kramdown
+permalink: /:title
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+liquid:
+  error_mode: strict
+
+exclude:
+  - vendor
+  - "*.sh"
+  - Gemfile*
+  - README.md
+
+include:
+  - .htaccess

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pensées - {{ page.title }}</title>
+    <meta name="description" content="{{ page.title }}">
+
+    <link rel="stylesheet" href="/assets/application.css">
+  </head>
+
+  <body>
+    <h1 class="center">
+      <a href="/"><img src="/assets/title.png" alt="Pensées" height="113" width="293" /></a>
+    </h1>
+
+    {% if page.url != '/' %}
+      <h2 class="center">
+        <a href="{{ page.url }}">{{ page.title }}</a>
+      </h2>
+    {% endif %}
+
+    {% if page.related %}
+      <aside class="related center">
+        See also:
+        {% capture list %}
+        {% for related in page.related %}
+          -
+          <a href="{{ related | slugify }}">{{ related }}</a>
+        {% endfor %}
+        {% endcapture %}
+        {{ list | remove_first: "-" }}
+      </aside>
+    {% endif %}
+
+    <main>{{ content }}</main>
+
+    <h1 class="center">~ ~ ~</h1>
+
+    <footer>
+      {% if page.url != '/' %}
+        <h4 class="center">
+          <a href="https://github.com/pensees/pensees.github.io/edit/master{{ page.url }}.md">Disagree? Please edit and explain why.</a>
+        </h4>
+      {% endif %}
+
+      <p>
+      These thoughts are intended to be as universal as possible.
+      Different people have different opinions and it is perfectly fine.
+      </p>
+      <p>
+      If you disagree with a thought, <em>please</em> don't be afraid to say so and explain why.
+      We'll accept your suggestion if you can make a valid and rational case for it.
+      Please avoid subjective thoughts, for example arguing that <q>green is the best color</q> doesn't make sense.
+      </p>
+      <p>
+      The ultimate goal of this project is to come up with <strong>a collection of universal thoughts and life lessons aimed to help humanity lead a happier and healthier life</strong>, both as individuals and together as a species.
+      </p>
+      <p class="center">
+      <em>All content on this site is part of the public domain.</em>
+      </p>
+
+      <h1 class="smiley center">&#9786;</h1>
+    </footer>
+  </body>
+</html>

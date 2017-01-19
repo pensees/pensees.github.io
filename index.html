@@ -1,0 +1,15 @@
+---
+title: Index
+---
+
+<h4 class="center">
+  <em>A collection of short rational thoughts and life lessons.</em>
+</h4>
+
+<ul id="index">
+  {% for page in site.pages %}
+    {% if page.url != '/' %}
+      <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
